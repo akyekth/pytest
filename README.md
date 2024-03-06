@@ -46,4 +46,18 @@ cmd> tox
     - property based tetsing:Pytest Hypothesis Library - unittests+hypothesis
       - link:https://pytest-with-eric.com/pytest-advanced/hypothesis-testing-python/
       -  testcases generated based on contariants or conditions
-                
+## JIRA-INTEGRATION
+1. Create testcases in jira manually. or create testcases in xcel sheet and upload to jira.
+2. Collect the test case key
+3. and open your pytest cases and specify by using @pytest.mark.xray('JIRA-1')
+4. create 3 environmental vraibles
+    - XRAY_API_BASE_URL - 'https://<....>.com/'
+    - XRAY_API_USER  - jira username
+    - XRAY_API_PASSWORD - jira_password
+5. run test by using below command
+```
+commnad upload tests specific test execution: pytest --jira-xray --execution <te-key-XXXX>
+commnad create new test execution: tests specific test execution: pytest --jira-xray
+```
+6. after running above command can see below lineas output
+---------- Uploaded results to JIRA XRAY. Test Execution Id: XXX-XXXX ----------        
